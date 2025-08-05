@@ -1,7 +1,7 @@
 class LoginPage {
 
-    verifyLoginPage(){
-        cy.get('title').should('contain', 'Swag Labs');
+    getPageTitle(): Cypress.Chainable<string> {
+        return cy.title();
     }
 
     loginUser(username: string, password: string) {

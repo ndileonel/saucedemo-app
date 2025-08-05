@@ -4,7 +4,9 @@ class InventoryPage {
     }
 
     addProductByNameToCart(productName: string) {
-        cy.get('.inventory_item').contains(productName).parent().find('.btn_inventory').click();
+        cy.contains('.inventory_item', productName)
+            .find('button')
+            .click();
     }
 
     gotoProductCartPage() {
@@ -12,7 +14,8 @@ class InventoryPage {
     }
 
     verifyItemInCart(itemName: string) {
-        cy.get('[data-test="shopping-cart-badge"]').should('have.text', '1');    }
+        cy.get('[data-test="shopping-cart-badge"]').should('have.text', '1');
+    }
 }
 
 export default InventoryPage;
