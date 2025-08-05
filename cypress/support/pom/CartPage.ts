@@ -1,7 +1,7 @@
 class CartPage {
 
-    verifyCartPageTitle() {
-        cy.get('[data-test="title"]').should('contain', 'Your Cart');
+    getPageTitle(): Cypress.Chainable<string> {
+        return cy.get('[data-test="title"]').invoke('text');
     }
 
     getItemInCart(): Cypress.Chainable<string> {

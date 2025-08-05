@@ -29,7 +29,7 @@ When('the user logs in with valid credentials using username {string} and passwo
 });
 
 Then("the user should be redirected to the inventory page", function () {
-    inventoryPage.verifyInventoryPage();
+    cy.verifyPageTitle('Products');
 });
 
 When('the user adds the {string} product to the cart', (prodName: string) => {
@@ -50,7 +50,7 @@ Then("the cart should contain the selected product", function () {
 
 When("the user proceeds to checkout and enters delivery information below:", function (dataTable: DataTable) {
     cartPage.navigateToCheckout();
-    checkoutPage.verifyCheckoutPage();
+    cy.verifyPageTitle('Checkout: Your Information');
     const { ['first name']: firstName, ['last name']: lastName, ['postal code']: postalCode } = dataTable.hashes()[0];
     checkoutPage.fillCheckoutForm(firstName, lastName, postalCode);
 });
@@ -61,7 +61,7 @@ Then("the product confirmation page should display the following item informatio
 });
 
 Then("the user navigates to the product confirmation page", function () {
-    productConfirmationPage.verifyProductConfirmationPage();
+    cy.verifyPageTitle('Checkout: Overview');
 });
 
 When("the user confirms the order", function () {
@@ -69,5 +69,5 @@ When("the user confirms the order", function () {
 });
 
 Then("the user should see the product completion page", function () {
-    productCompletionPage.verifyCompletionMessage();
+    cy.verifyPageTitle('Checkout: Complete!');
 });

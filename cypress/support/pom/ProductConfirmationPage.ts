@@ -1,7 +1,4 @@
 class ProductConfirmationPage {
-    verifyProductConfirmationPage() {
-        cy.get('[data-test="title"]').should('contain', 'Checkout: Overview');
-    }
 
     verifyOrderDetails(itemName: string, description: string, totalPrice: string) {
         cy.get('[data-test="inventory-item-name"]').should('have.text', itemName);

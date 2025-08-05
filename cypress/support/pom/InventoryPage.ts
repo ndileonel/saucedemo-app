@@ -1,6 +1,7 @@
 class InventoryPage {
-    verifyInventoryPage() {
-        cy.get('[data-test="title"]').should('contain', 'Products');
+
+    getPageTitle(): Cypress.Chainable<string> {
+        return cy.get('[data-test="title"]').invoke('text');
     }
 
     addProductByNameToCart(productName: string) {
