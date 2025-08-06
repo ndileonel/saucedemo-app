@@ -6,6 +6,7 @@ import CheckoutPage from '../../support/pom/CheckoutPage';
 import CartPage from '../../support/pom/CartPage';
 import ProductConfirmationPage from '../../support/pom/ProductConfirmationPage';
 import ProductCompletionPage from '../../support/pom/ProductCompletionPage';
+import ProductPage from '../../support/pom/ProductPage';
 
 const loginPage = new LoginPage();
 const inventoryPage = new InventoryPage();
@@ -13,6 +14,7 @@ const cartPage = new CartPage();
 const checkoutPage = new CheckoutPage();
 const productConfirmationPage = new ProductConfirmationPage();
 const productCompletionPage = new ProductCompletionPage();
+const productPage = new ProductPage();
 
 let productName: string;
 
@@ -37,7 +39,7 @@ When('the user adds the {string} product to the cart', (prodName: string) => {
     productName = prodName; // Store the product name for later use
 });
 
-When("the user navigates to the cart page", function () {
+When("the user navigates to the cart page from the inventory page", function () {
     inventoryPage.gotoProductCartPage();
 });
 
@@ -73,4 +75,18 @@ Then("the user should see the product completion page", function () {
     productCompletionPage.getSuccessMessage().then((message) => {
         expect(message).to.contain('Thank you for your order!');
     });
+});
+
+When("the user selects the {string} product from the inventory page", function (prodName: string) {
+    inventoryPage.selectProductByName(prodName);
+    productName = prodName;
+});
+
+When("the user adds the product to the cart from the product page", function () {
+    productPage.addProductByNameToCart(productName);
+    productPage.verifyItemInCart(productName);
+});
+
+When("the user navigates to the cart page from the product page", function () {
+    inventoryPage.gotoProductCartPage();
 });
