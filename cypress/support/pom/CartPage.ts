@@ -9,6 +9,14 @@ class CartPage {
     navigateToCheckout() {
         cy.get('[data-test="checkout"]').click();
     }
+
+    removeProductFromCart() {
+        cy.get('.item_pricebar').find('button').click();
+    }
+
+    verifyEmpty() {
+        cy.get('[data-test="item-quantity"]').should('not.exist');
+    }
 }
 
 export default CartPage;

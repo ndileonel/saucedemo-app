@@ -90,3 +90,11 @@ When("the user adds the product to the cart from the product page", function () 
 When("the user navigates to the cart page from the product page", function () {
     inventoryPage.gotoProductCartPage();
 });
+
+When("the user removes the product from the cart", function () {
+    cartPage.removeProductFromCart();
+});
+
+Then("the cart should be empty", function () {
+    cartPage.verifyEmpty();
+});

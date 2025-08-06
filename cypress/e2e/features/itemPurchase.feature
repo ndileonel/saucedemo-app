@@ -37,7 +37,13 @@ Feature: User can purchase item on Swag Labs website
     When the user confirms the order
     Then the user should see the product completion page
 
+  Scenario: User removes added item from cart page
+    When the user adds the "Sauce Labs Backpack" product to the cart
+    And the user navigates to the cart page from the inventory page
+    Then the cart should contain the selected product
 
+    When the user removes the product from the cart
+    Then the cart should be empty
 
 
 
