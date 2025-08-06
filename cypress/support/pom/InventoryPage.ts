@@ -1,9 +1,5 @@
 class InventoryPage {
 
-    getPageTitle(): Cypress.Chainable<string> {
-        return cy.get('[data-test="title"]').invoke('text');
-    }
-
     addProductByNameToCart(productName: string) {
         cy.contains('.inventory_item', productName)
             .find('button')

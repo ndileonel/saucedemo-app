@@ -1,7 +1,4 @@
 class CheckoutPage {
-    verifyCheckoutPage() {
-        cy.get('[data-test="title"]').should('contain', 'Checkout: Your Information');
-    }
 
     fillCheckoutForm(firstName: string, lastName: string, postalCode: string) {
         cy.get('[data-test="firstName"]').type(firstName);
