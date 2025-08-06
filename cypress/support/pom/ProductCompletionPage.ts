@@ -1,7 +1,7 @@
 class ProductCompletionPage {
 
-    verifyCompletionMessage() {
-        cy.get('[data-test="compete-header"]').should('have.text', 'Thank you for your order!');
+    getSuccessMessage(): Cypress.Chainable<string> {
+        return cy.get('[data-test="complete-header"]').invoke('text');
     }
 }
 

@@ -70,4 +70,7 @@ When("the user confirms the order", function () {
 
 Then("the user should see the product completion page", function () {
     cy.verifyPageTitle('Checkout: Complete!');
+    productCompletionPage.getSuccessMessage().then((message) => {
+        expect(message).to.contain('Thank you for your order!');
+    });
 });
