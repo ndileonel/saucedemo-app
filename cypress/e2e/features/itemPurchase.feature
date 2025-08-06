@@ -1,6 +1,6 @@
 Feature: User can purchase item on Swag Labs website
-  As a user
-  I want to purchase an item on the Swag Labs site
+  As a user of the Swag Labs site
+  I want to purchase an item on the site
   So that I can own the item outright
 
   Background:
