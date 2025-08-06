@@ -18,7 +18,6 @@ const productPage = new ProductPage();
 
 let productName: string;
 
-
 Given('the user is on the Swag Labs login page', () => {
     cy.visit('/');
     loginPage.getPageTitle().then((title) => {

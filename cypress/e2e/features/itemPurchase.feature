@@ -1,7 +1,7 @@
 Feature: User can purchase item on Swag Labs website
   As a user
   I want to purchase an item on the Swag Labs site
-  So that I can own it outright
+  So that I can own the item outright
 
   Background:
     Given the user is on the Swag Labs login page
@@ -12,6 +12,7 @@ Feature: User can purchase item on Swag Labs website
     When the user adds the "Sauce Labs Backpack" product to the cart
     And the user navigates to the cart page from the inventory page
     Then the cart should contain the selected product
+
     When the user proceeds to checkout and enters delivery information below:
       | first name | last name | postal code |
       | John       | Doe       | 12345       |
@@ -19,6 +20,7 @@ Feature: User can purchase item on Swag Labs website
     Then the product confirmation page should display the following item information:
       | product name        | description          | price  |
       | Sauce Labs Backpack | streamlined Sly Pack | $29.99 |
+
     When the user confirms the order
     Then the user should see the product completion page
 
@@ -27,6 +29,7 @@ Feature: User can purchase item on Swag Labs website
     And the user adds the product to the cart from the product page
     And the user navigates to the cart page from the product page
     Then the cart should contain the selected product
+
     When the user proceeds to checkout and enters delivery information below:
       | first name | last name | postal code |
       | John       | Doe       | 12345       |
@@ -34,6 +37,7 @@ Feature: User can purchase item on Swag Labs website
     Then the product confirmation page should display the following item information:
       | product name        | description          | price  |
       | Sauce Labs Backpack | streamlined Sly Pack | $29.99 |
+      
     When the user confirms the order
     Then the user should see the product completion page
 
